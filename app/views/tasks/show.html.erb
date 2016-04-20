@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <title>タスク詳細</title>
+  <link rel="stulesheet" href="show.scss">
+</head>
+
+<body>
+<div class="header">
+  <p>タスク詳細</p>
+</div>
+
+<%= link_to '新規作成', new_task_comment_path(task_id: @task.id) %>
+
+
+<div class="contents">
+  <p>[タスク] <%= @task.name %>, [納期] <%= @task.deadline %><br /></p>
+</div>
+
+<div class="content-bottom">
+  <table>
+    <tr>
+      <th>コメント</th>
+    </tr>
+    <% @comments.each do |comment| %>
+
+        <tr>
+          <td><%= link_to comment.content, task_comment_path(id: comment.id, task_id: @task.id) %></td>
+          <td><%= link_to '編集', edit_task_comment_path(id: comment.id, task_id: @task.id) %></td>
+          <td><%= link_to "削除", task_comment_path(id: comment.id, task_id: @task.id), method: :delete, data: { confirm: "削除してよろしいですか？" } %></td>
+        </tr>
+    <% end %>
+  </table>
+</div>
+
+</body>

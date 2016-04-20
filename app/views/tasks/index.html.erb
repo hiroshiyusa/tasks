@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <title>タスク一覧</title>
+  <link rel="stulesheet" href="task.scss">
+</head>
+
+<body>
+    <div class="header-left">
+      <p>タスク一覧</p>
+    </div>
+    <div class="header-right">
+
+      <p>
+        <%= link_to '新規作成', new_task_path %>
+      </p>
+
+      <p>
+        <%= link_to 'ユーザー新規登録', new_user_path %>
+      </p>
+
+    </div>
+
+    <div class="contents">
+     <table>
+        <tr>
+          <th>タスク</th>
+          <th>納期</th>
+          <th>担当者</th>
+        </tr>
+        <% @tasks.each do |task| %>
+        <tr>
+          <td><%= link_to task.name, task_path(id: task.id) %></td>
+          <td><%= task.deadline %></td>
+          <td><%= link_to '編集', edit_task_path(id: task.id) %></td>
+          <td><%= link_to "削除", task_path(id: task.id), method: :delete, data: { confirm: "削除してよろしいですか？" } %></td>
+        </tr>
+        <% end %>
+     </table>
+    </div>
+
+    <table>
+      <tr>
+        <th>ユーザー</th>
+      </tr>
+      <% @users.each do |user| %>
+
+          <tr>
+            <td><%= link_to "#{user.name}", user_path(id: user.id) %></td>
+            <td><%= link_to "#{user.email}", user_path(id: user.id) %></td>
+            <td><%= link_to '編集', edit_user_path(id: user.id) %></td>
+            <td><%= link_to "削除", user_path(id: user.id), method: :delete, data: { confirm: "削除してよろしいですか？" } %></td>
+          </tr>
+      <% end %>
+    </table>
+
+</body>
+</html>

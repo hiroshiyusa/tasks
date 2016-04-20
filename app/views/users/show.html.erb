@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <title>ユーザー詳細</title>
+  <link rel="stulesheet" href="show.scss">
+</head>
+
+<body>
+<div class="header">
+  <p>ユーザー詳細</p>
+</div>
+
+<%= link_to '新規作成', new_task_path %>
+
+
+<div class="contents">
+  <p>[名前] <%= @user.name %>, [メールアドレス] <%= @user.email %><br/></p>
+</div>
+

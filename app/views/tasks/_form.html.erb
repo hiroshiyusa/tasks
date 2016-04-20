@@ -1,0 +1,15 @@
+<%= form_for @task do |f| %>
+
+    <%= f.label :タスク %>
+    <%= f.text_field :name %>
+
+    <%= f.label :納期 %>
+    <%= f.datetime_select :deadline %>
+
+    <%= f.label :担当者 %>
+    <%= f.text_field :staff %>
+
+
+    <%= f.submit "更新" %>
+
+<% end %>

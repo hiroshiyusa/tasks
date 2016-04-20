@@ -1,0 +1,29 @@
+// Place all the styles related to the task controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+.header-left{float: left;
+              width: 80px; height: 77px;
+              font-size: 15px;
+              padding: 10px;
+              font-family: Meiryo UI;}
+
+.header-right{float: left;
+              padding: 10px;
+              font-size: 15px;
+              background-color: #ffb654;
+              width: 80px; height: 77px;
+              font-family: Meiryo UI;}
+
+.contents{clear: left;}
+
+.clearfix:after {
+  content: ".";
+  display: block;
+  clear: both;
+  height: 0;
+  visibility: hidden;
+}
+
+.contents th{border:1px solid #808080}
+.contents td{border:1px solid #808080}
+.contents table{border-collapse:collapse;}
